@@ -14,7 +14,7 @@ const validation = {
 };
 
 class Wappalyzer {
-  constructor() {
+  constructor(opts) {
     this.apps = {};
     this.categories = {};
     this.driver = {};
@@ -22,6 +22,8 @@ class Wappalyzer {
     this.detected = {};
     this.hostnameCache = {};
     this.adCache = [];
+
+    this.noRobotsTxt = opts.noRobotsTxt
 
     this.config = {
       websiteURL: 'https://wappalyzer.com/',
@@ -111,6 +113,7 @@ class Wappalyzer {
    *
    */
   robotsTxtAllows(url) {
+    if (this.noRobotsTxt) { return Promise.resolve() }
     return new Promise((resolve, reject) => {
       var parsed = this.parseUrl(url);
 
