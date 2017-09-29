@@ -37,6 +37,8 @@ class Wappalyzer {
     this.driver.log(message, source || '', type || 'debug');
   }
 
+  ping() {}
+
   analyze(hostname, url, data, context) {
     var apps = {};
 
