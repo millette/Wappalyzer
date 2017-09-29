@@ -11,7 +11,7 @@ const driver = {
   quiet: true,
 
   analyze: url => {
-    const wappalyzer = new Wappalyzer();
+    const wappalyzer = new Wappalyzer({ noRobotsTxt: true });
 
     wappalyzer.apps = json.apps;
     wappalyzer.categories = json.categories;
