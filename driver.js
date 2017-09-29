@@ -10,6 +10,8 @@ const json = JSON.parse(fs.readFileSync(__dirname + '/apps.json'));
 const driver = {
   quiet: true,
 
+  ping: () => {},
+
   analyze: url => {
     const wappalyzer = new Wappalyzer();
 
